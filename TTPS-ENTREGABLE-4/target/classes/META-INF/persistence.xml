@@ -11,7 +11,7 @@
 			<property name="hibernate.connection.driver_class"
 				value="com.mysql.jdbc.Driver" />
 			<property name="hibernate.connection.password"
-				value="CursoSql1234" />
+				value="#" />
 			<property name="hibernate.connection.url"
 				value="jdbc:mysql://localhost:3306/historiaclinicamascota?serverTimezone=UTC" />
 			<!--Error Zona Horaria https://es.stackoverflow.com/questions/48935/configurar-zona-horaria-jdbc-driver-java/48946 -->
