@@ -15,7 +15,7 @@ public class Mascota implements Serializable {
 	private String sexo;
 	private String color;
 	private String señasParticulares;
-	private String foto;
+	private String foto; //Ver Como Manejar en Java y La Bd Fotos
 	private Dueño miDueño;
 	private List<Recordatorio> misRecordatorios;
 	private List<Evento> misEventos;
