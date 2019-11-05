@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 
@@ -37,8 +38,8 @@ public class Dueño implements Serializable{
 	@Column(name="email")
 	private String email;
 	
-	@OneToOne(cascade = {CascadeType.ALL})
-	@JoinColumn(name = "fk_ficha_publica")
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="fkPublica")
 	private FichaPublica fpublica;
 	
 	//private List<Mascota> mascotas;
