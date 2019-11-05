@@ -2,23 +2,53 @@ package ttps.hibernate.modelos;
 
 import java.io.Serializable;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="FichaPublica")
 public class FichaPublica implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue
+	@Column(name="id_ficha_publica")
 	private int id_ficha_publica;
+	
+	@Column(name="nombre")
 	private Boolean nombre;
+	
+	@Column(name="apellido")
 	private Boolean apellido;
+	
+	@Column(name="telefono")
 	private Boolean telefono;
+	
+	@Column(name="email")
 	private Boolean email;
+	
+	@Column(name="nombreMascota")
 	private Boolean nombreMascota;
+	
+	@Column(name="fechaNacimiento")
 	private Boolean fechaNacimiento;
+	
+	@Column(name="especie")
 	private Boolean especie;
+	
+	@Column(name="raza")
 	private Boolean raza;
+	
+	@Column(name="sexo")
 	private Boolean sexo;
+	
+	@Column(name="color")
 	private Boolean color;
+	
+	@Column(name="señasParticulares")
 	private Boolean señasParticulares;
+	
+	@Column(name="foto")
 	private Boolean foto;
-	private Boolean miDueño;
 	
 	public FichaPublica() {
 		
@@ -26,7 +56,7 @@ public class FichaPublica implements Serializable {
 
 	public FichaPublica(int id_ficha_publica, Boolean nombre, Boolean apellido, Boolean telefono, Boolean email,
 			Boolean nombreMascota, Boolean fechaNacimiento, Boolean especie, Boolean raza, Boolean sexo, Boolean color,
-			Boolean señasParticulares, Boolean foto, Boolean miDueño) {
+			Boolean señasParticulares, Boolean foto) {
 		this.id_ficha_publica = id_ficha_publica;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -40,7 +70,6 @@ public class FichaPublica implements Serializable {
 		this.color = color;
 		this.señasParticulares = señasParticulares;
 		this.foto = foto;
-		this.miDueño = miDueño;
 	}
 
 	public int getId_ficha_publica() {
@@ -147,21 +176,12 @@ public class FichaPublica implements Serializable {
 		this.foto = foto;
 	}
 
-	public Boolean getMiDueño() {
-		return miDueño;
-	}
-
-	public void setMiDueño(Boolean miDueño) {
-		this.miDueño = miDueño;
-	}
-
 	@Override
 	public String toString() {
 		return "FichaPublica [id_ficha_publica=" + id_ficha_publica + ", nombre=" + nombre + ", apellido=" + apellido
 				+ ", telefono=" + telefono + ", email=" + email + ", nombreMascota=" + nombreMascota
 				+ ", fechaNacimiento=" + fechaNacimiento + ", especie=" + especie + ", raza=" + raza + ", sexo=" + sexo
-				+ ", color=" + color + ", señasParticulares=" + señasParticulares + ", foto=" + foto + ", miDueño="
-				+ miDueño + "]";
+				+ ", color=" + color + ", señasParticulares=" + señasParticulares + ", foto=" + foto + "]";
 	}
 	
 }

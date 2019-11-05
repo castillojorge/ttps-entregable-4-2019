@@ -6,6 +6,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 
+import ttps.hibernate.modelos.Dueño;
+import ttps.hibernate.modelos.FichaPublica;
 import ttps.hibernate.modelos.Usuario;
 
 public class UsuarioDao {
@@ -19,14 +21,15 @@ public class UsuarioDao {
 				
 				//Creo un mensaje y lo persisto
 				Usuario u = new Usuario();
-				u.setApellido_user("cas");
-				u.setNombre_user("jor");
+				u.setApellido_user("caskkl");
+				u.setNombre_user("jorjkk");
 				u.setEmail_user("aa@aa.com");
 				u.setPassword("1223");
 				u.setTelefono("123");
 				manager.getTransaction().begin();
 				manager.persist(u);
 				manager.getTransaction().commit();
+				
 
 	}
 
