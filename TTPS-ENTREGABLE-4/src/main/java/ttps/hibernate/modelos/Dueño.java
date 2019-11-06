@@ -38,8 +38,8 @@ public class Dueño implements Serializable{
 	@Column(name="email")
 	private String email;
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="fkPublica")
+	@OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_ficha_publica")
 	private FichaPublica fpublica;
 	
 	//private List<Mascota> mascotas;
@@ -58,7 +58,6 @@ public class Dueño implements Serializable{
 		this.fpublica = fpublica;
 	}
 	
-	@Id
 	
 	public int getId_dueño() {
 		return id_dueño;
