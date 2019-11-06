@@ -4,16 +4,43 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Atencion")
 public class Atencion implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue
+	@Column
 	private int id_atencion;
+	
+	@Column
 	private Date fecha;
+	
+	@Column
 	private int peso;
+	
+	@Column
 	private String indicaciones;
+	
+	@Column
 	private String diagnostico;
+	
+	@Column
 	private String motivo;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_veterinario")
+	private Veterinario aVeterinario;
+	
+	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "id_mascota")
 	private Mascota mascota;
+	
+	@OneToMany(mappedBy = "id_evento", cascade = {CascadeType.ALL})
 	private List<Evento> eventos;
 	
 	public Atencion() {
@@ -21,13 +48,14 @@ public class Atencion implements Serializable{
 	}
 
 	public Atencion(int id_atencion, Date fecha, int peso, String indicaciones, String diagnostico, String motivo,
-			Mascota mascota, List<Evento> eventos) {
+			Veterinario aVeterinario, Mascota mascota, List<Evento> eventos) {
 		this.id_atencion = id_atencion;
 		this.fecha = fecha;
 		this.peso = peso;
 		this.indicaciones = indicaciones;
 		this.diagnostico = diagnostico;
 		this.motivo = motivo;
+		this.aVeterinario = aVeterinario;
 		this.mascota = mascota;
 		this.eventos = eventos;
 	}
@@ -80,6 +108,14 @@ public class Atencion implements Serializable{
 		this.motivo = motivo;
 	}
 
+	public Veterinario getaVeterinario() {
+		return aVeterinario;
+	}
+
+	public void setaVeterinario(Veterinario aVeterinario) {
+		this.aVeterinario = aVeterinario;
+	}
+
 	public Mascota getMascota() {
 		return mascota;
 	}
@@ -99,9 +135,8 @@ public class Atencion implements Serializable{
 	@Override
 	public String toString() {
 		return "Atencion [id_atencion=" + id_atencion + ", fecha=" + fecha + ", peso=" + peso + ", indicaciones="
-				+ indicaciones + ", diagnostico=" + diagnostico + ", motivo=" + motivo + ", mascota=" + mascota
-				+ ", eventos=" + eventos + "]";
-	}
-	
+				+ indicaciones + ", diagnostico=" + diagnostico + ", motivo=" + motivo + ", aVeterinario="
+				+ aVeterinario + ", mascota=" + mascota + ", eventos=" + eventos + "]";
+	}	
 
 }

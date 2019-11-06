@@ -39,14 +39,16 @@ public class Evento implements Serializable{
 	@JoinColumn(name ="id_tEvento")
 	private TipoEvento tEvento;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="id_atencion")
+	private Atencion aAtencion;
+	
 	public Evento() {
 		
 	}
 
-	
-
 	public Evento(int id_evento, Date fecha, String descripcion, int nroCachorros, String droga, String resultado,
-			Mascota aMascota, TipoEvento tEvento) {
+			Mascota aMascota, TipoEvento tEvento, Atencion aAtencion) {
 		this.id_evento = id_evento;
 		this.fecha = fecha;
 		this.descripcion = descripcion;
@@ -55,7 +57,10 @@ public class Evento implements Serializable{
 		this.resultado = resultado;
 		this.aMascota = aMascota;
 		this.tEvento = tEvento;
+		this.aAtencion = aAtencion;
 	}
+
+
 
 	public int getId_evento() {
 		return id_evento;
@@ -120,12 +125,20 @@ public class Evento implements Serializable{
 	public void settEvento(TipoEvento tEvento) {
 		this.tEvento = tEvento;
 	}
+	
+	public Atencion getaAtencion() {
+		return aAtencion;
+	}
+
+	public void setaAtencion(Atencion aAtencion) {
+		this.aAtencion = aAtencion;
+	}
 
 	@Override
 	public String toString() {
 		return "Evento [id_evento=" + id_evento + ", fecha=" + fecha + ", descripcion=" + descripcion
 				+ ", nroCachorros=" + nroCachorros + ", droga=" + droga + ", resultado=" + resultado + ", aMascota="
-				+ aMascota + ", tEvento=" + tEvento + "]";
+				+ aMascota + ", tEvento=" + tEvento + ", aAtencion=" + aAtencion + "]";
 	}
 
 }

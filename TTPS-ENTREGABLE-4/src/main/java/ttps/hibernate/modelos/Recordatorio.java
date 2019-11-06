@@ -37,8 +37,6 @@ public class Recordatorio implements Serializable{
 		this.aMascota = aMascota;
 	}
 
-
-
 	public int getId_recordatorio() {
 		return id_recordatorio;
 	}

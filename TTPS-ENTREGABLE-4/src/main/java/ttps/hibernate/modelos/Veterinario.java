@@ -3,29 +3,53 @@ package ttps.hibernate.modelos;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Veterinario")
 public class Veterinario implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue
+	@Column
 	private int id_veterinario;
+	
+	@Column
 	private String nombreConsultorio;
+	
+	@Column
 	private String direccionConsultorio;
+	
+	@Column
 	private String estado;
+	
+	@OneToMany(mappedBy = "miVeterinario", cascade = {CascadeType.ALL})
 	private List<Mascota> misPacientes;
+	
+	@OneToMany(mappedBy = "aVeterinario", cascade = {CascadeType.ALL})
 	private List<Atencion> misAtenciones;
+	
+	@OneToMany(mappedBy = "veterinario", cascade = {CascadeType.ALL})
+	private List<SuscripcionMascota> misSuscripciones;
 	
 	public Veterinario() {
 		
 	}
 
 	public Veterinario(int id_veterinario, String nombreConsultorio, String direccionConsultorio, String estado,
-			List<Mascota> misPacientes, List<Atencion> misAtenciones) {
+			List<Mascota> misPacientes, List<Atencion> misAtenciones, List<SuscripcionMascota> misSuscripciones) {
 		this.id_veterinario = id_veterinario;
 		this.nombreConsultorio = nombreConsultorio;
 		this.direccionConsultorio = direccionConsultorio;
 		this.estado = estado;
 		this.misPacientes = misPacientes;
 		this.misAtenciones = misAtenciones;
+		this.misSuscripciones = misSuscripciones;
 	}
+
+
 
 	public int getId_veterinario() {
 		return id_veterinario;
@@ -75,11 +99,19 @@ public class Veterinario implements Serializable {
 		this.misAtenciones = misAtenciones;
 	}
 
+	public List<SuscripcionMascota> getMisSuscripciones() {
+		return misSuscripciones;
+	}
+
+	public void setMisSuscripciones(List<SuscripcionMascota> misSuscripciones) {
+		this.misSuscripciones = misSuscripciones;
+	}
+
 	@Override
 	public String toString() {
 		return "Veterinario [id_veterinario=" + id_veterinario + ", nombreConsultorio=" + nombreConsultorio
 				+ ", direccionConsultorio=" + direccionConsultorio + ", estado=" + estado + ", misPacientes="
-				+ misPacientes + ", misAtenciones=" + misAtenciones + "]";
+				+ misPacientes + ", misAtenciones=" + misAtenciones + ", misSuscripciones=" + misSuscripciones + "]";
 	}
-	
+
 }

@@ -44,6 +44,10 @@ public class Mascota implements Serializable {
 	@JoinColumn(name = "id_dueño")
 	private Dueño miDueño;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name ="id_veterinario")
+	private Veterinario miVeterinario;
+	
 	@OneToMany(mappedBy = "aMascota" , cascade = {CascadeType.ALL})
 	private List<Recordatorio> misRecordatorios;
 	
