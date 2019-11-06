@@ -4,19 +4,46 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="Mascota")
 public class Mascota implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue
+	@Column(name="id_mascota")
 	private int id_mascota;
+	
+	@Column
 	private String nombre;
+	
+	@Column
 	private Date fechaNacimiento;
+	
+	@Column
 	private String especie;
+	
+	@Column
 	private String raza;
+	
+	@Column
 	private String sexo;
+	
+	@Column
 	private String color;
+	
+	@Column
 	private String señasParticulares;
+	
+	@Column
 	private String foto; //Ver Como Manejar en Java y La Bd Fotos
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_dueño")
 	private Dueño miDueño;
+	
 	private List<Recordatorio> misRecordatorios;
 	private List<Evento> misEventos;
 	
