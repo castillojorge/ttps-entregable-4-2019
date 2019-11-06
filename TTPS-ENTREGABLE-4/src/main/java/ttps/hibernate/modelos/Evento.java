@@ -3,29 +3,57 @@ package ttps.hibernate.modelos;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="Evento")
 public class Evento implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue
+	@Column
 	private int id_evento;
+	
+	@Column
 	private Date fecha;
+	
+	@Column
 	private String descripcion;
+	
+	@Column
 	private int nroCachorros;
+	
+	@Column
 	private String droga;
+	
+	@Column
 	private String resultado;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="id_mascota")
+	private Mascota aMascota;
+	
+	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name ="id_tEvento")
 	private TipoEvento tEvento;
 	
 	public Evento() {
 		
 	}
 
+	
+
 	public Evento(int id_evento, Date fecha, String descripcion, int nroCachorros, String droga, String resultado,
-			TipoEvento tEvento) {
+			Mascota aMascota, TipoEvento tEvento) {
 		this.id_evento = id_evento;
 		this.fecha = fecha;
 		this.descripcion = descripcion;
 		this.nroCachorros = nroCachorros;
 		this.droga = droga;
 		this.resultado = resultado;
+		this.aMascota = aMascota;
 		this.tEvento = tEvento;
 	}
 
@@ -77,6 +105,14 @@ public class Evento implements Serializable{
 		this.resultado = resultado;
 	}
 
+	public Mascota getaMascota() {
+		return aMascota;
+	}
+
+	public void setaMascota(Mascota aMascota) {
+		this.aMascota = aMascota;
+	}
+
 	public TipoEvento gettEvento() {
 		return tEvento;
 	}
@@ -88,8 +124,8 @@ public class Evento implements Serializable{
 	@Override
 	public String toString() {
 		return "Evento [id_evento=" + id_evento + ", fecha=" + fecha + ", descripcion=" + descripcion
-				+ ", nroCachorros=" + nroCachorros + ", droga=" + droga + ", resultado=" + resultado + ", tEvento="
-				+ tEvento + "]";
+				+ ", nroCachorros=" + nroCachorros + ", droga=" + droga + ", resultado=" + resultado + ", aMascota="
+				+ aMascota + ", tEvento=" + tEvento + "]";
 	}
-		
+
 }

@@ -9,6 +9,10 @@
 		<class>ttps.hibernate.modelos.Usuario</class>
 		<class>ttps.hibernate.modelos.Dueño</class>
 		<class>ttps.hibernate.modelos.FichaPublica</class>
+		<class>ttps.hibernate.modelos.Mascota</class>
+		<class>ttps.hibernate.modelos.Recordatorio</class>
+		<class>ttps.hibernate.modelos.Evento</class>
+		<class>ttps.hibernate.modelos.TipoEvento</class>
 		<properties>
 			<property name="hibernate.connection.driver_class"
 				value="com.mysql.jdbc.Driver" />

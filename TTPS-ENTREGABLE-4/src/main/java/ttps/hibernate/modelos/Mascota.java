@@ -44,7 +44,10 @@ public class Mascota implements Serializable {
 	@JoinColumn(name = "id_dueño")
 	private Dueño miDueño;
 	
+	@OneToMany(mappedBy = "aMascota" , cascade = {CascadeType.ALL})
 	private List<Recordatorio> misRecordatorios;
+	
+	@OneToMany(mappedBy = "aMascota", cascade = {CascadeType.ALL})
 	private List<Evento> misEventos;
 	
 	public Mascota() {

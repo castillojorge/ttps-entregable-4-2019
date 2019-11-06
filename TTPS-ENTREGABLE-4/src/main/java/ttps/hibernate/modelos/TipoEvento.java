@@ -2,11 +2,23 @@ package ttps.hibernate.modelos;
 
 import java.io.Serializable;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="TipoEvento")
 public class TipoEvento implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue
+	@Column
 	private int id_tipo_evento;
+	
+	@Column
 	private String nombre;
+	
+	@Column
 	private String descripcion;
 	
 	public TipoEvento() {
