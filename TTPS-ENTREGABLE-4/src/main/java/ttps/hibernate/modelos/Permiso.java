@@ -2,27 +2,27 @@ package ttps.hibernate.modelos;
 
 import java.io.Serializable;
 
-public class Permisos implements Serializable{
+public class Permiso implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private int id_permisos;
+	private int id_permiso;
 	private String nombre_permiso;
 	
-	public Permisos() {
+	public Permiso() {
 		
 	}
-
-	public Permisos(int id_permisos, String nombre_permiso) {
-		this.id_permisos = id_permisos;
+	
+	public Permiso(int id_permiso, String nombre_permiso) {
+		this.id_permiso = id_permiso;
 		this.nombre_permiso = nombre_permiso;
 	}
 
-	public int getId_permisos() {
-		return id_permisos;
+	public int getId_permiso() {
+		return id_permiso;
 	}
 
-	public void setId_permisos(int id_permisos) {
-		this.id_permisos = id_permisos;
+	public void setId_permiso(int id_permiso) {
+		this.id_permiso = id_permiso;
 	}
 
 	public String getNombre_permiso() {
@@ -35,7 +35,7 @@ public class Permisos implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Permisos [id_permisos=" + id_permisos + ", nombre_permiso=" + nombre_permiso + "]";
-	}	
+		return "Permiso [id_permiso=" + id_permiso + ", nombre_permiso=" + nombre_permiso + "]";
+	}
 
 }
