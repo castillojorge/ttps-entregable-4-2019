@@ -25,6 +25,8 @@ public class Usuario implements Serializable {
 	private String email_user;
 	@Column(name="password")
 	private String password;
+	@Column(name="rol")
+	private String rol;
 	//@Column(name="fecha_creacion")
 	//private Date fecha_creacion;
 	//private List<Rol> roles; Saque de new Usuario la Lista de Roles como parametros
@@ -33,17 +35,19 @@ public class Usuario implements Serializable {
 		
 	}
 
-	public Usuario(int id_user, String nombre_user, String apellido_user, String telefono,
-			String email_user, String password) {
+	public Usuario(int id_user, String nombre_user, String apellido_user, String telefono, String email_user,
+			String password, String rol) {
+		super();
 		this.id_user = id_user;
 		this.nombre_user = nombre_user;
 		this.apellido_user = apellido_user;
 		this.telefono = telefono;
 		this.email_user = email_user;
 		this.password = password;
-		//this.fecha_creacion = fecha_creacion;
-	//	this.roles = roles;
+		this.rol = rol;
 	}
+
+
 
 	public int getId_user() {
 		return id_user;
@@ -93,29 +97,19 @@ public class Usuario implements Serializable {
 		this.password = password;
 	}
 
-	
-	/*
-	public List<Rol> getRoles() {
-		return roles;
+	public String getRol() {
+		return rol;
 	}
 
-	public void setRoles(List<Rol> roles) {
-		this.roles = roles;
+	public void setRol(String rol) {
+		this.rol = rol;
 	}
-	*/
 
 	@Override
 	public String toString() {
-		return "Usuario [id_user=" + id_user + ", nombre_user=" + nombre_user
-				+ ", apellido_user=" + apellido_user + ", telefono=" + telefono + ", email_user=" + email_user
-				+ ", password=" + password + "]";
+		return "Usuario [id_user=" + id_user + ", nombre_user=" + nombre_user + ", apellido_user=" + apellido_user
+				+ ", telefono=" + telefono + ", email_user=" + email_user + ", password=" + password + ", rol=" + rol
+				+ "]";
 	}
-	
-	
-	
-	
-	
-	
-	
 
 }
