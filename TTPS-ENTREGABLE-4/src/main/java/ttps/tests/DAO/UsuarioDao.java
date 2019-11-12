@@ -26,6 +26,7 @@ public class UsuarioDao {
 				u.setEmail_user("aa@aa.com");
 				u.setPassword("1223");
 				u.setTelefono("123");
+				u.setRol("ADMINISTRADOR");
 				manager.getTransaction().begin();
 				manager.persist(u);
 				manager.getTransaction().commit();
